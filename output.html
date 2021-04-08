@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Output</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+</head>
+<body>
+    <h1>inner html</h1>
+    <p id="inner"></p>
+
+    <script>
+        //write value
+        var a="hello"
+        document.getElementById("inner").innerHTML=5+6;
+        document.write(1+1);
+        console.log(a+"consol");
+
+        //arithmetic
+        var b=4+5+"5";
+        var d=4;
+        document.write(b-2+"<br>");
+        const c=7;
+
+        //object
+        var car={
+            type:"Mercedes",
+            model:"C200",
+            color:"black",
+            fullname: function(){
+                return this.type+" "+ this.color;
+            }
+        }
+        document.writeln(car.model+"<br>");
+        document.writeln(car.fullname() +"<br>");
+
+        //Events
+        loadhere=function btnclickdemo(){
+            var nb=1;
+            if(Boolean(nb==1)){
+                document.getElementById("demo").innerHTML+=this.innerHTML="click1 ";
+                nb+=1;
+            }
+            else{
+                document.getElementById("demo").innerHTML+=this.innerHTML="click2 ";
+                nb-=1;
+            }
+
+
+        }
+        window.addEventListener("load",loadhere);
+
+        hoverfn=function btnonmouseover(){
+            document.getElementById("demo").innerText="over";
+        }
+
+
+        //character
+        document.write("firset name \" \b \f \r here <br>");
+
+        //array
+        var arr=['lld1 ','abc','d','3'];
+        document.write("arr[0]: "+ arr[0]+", arrtostring: "+arr.toString()+ ", length: "+arr.length);
+        document.write("<br>Sort: "+arr.sort());
+
+        var nb=[12,33,14,66,,1,77,33,22,7];
+        document.write("<br> "+ nb.filter(nbu18)+",Min value: "+Math.min(3,4,1));
+        function nbu18(value){
+            return value>15;
+        }
+
+        //date
+
+        document.write("<br>ngay: "+ new Date());
+
+        let p;
+        for (p in car){
+            document.write("<br>For:" + car[p]);
+        }
+
+        class phone{
+            constructor(name,brand,yearp) {
+                this.name=name;
+                this.brand=brand;
+                this.year=year;
+            }
+            age(){
+                let dn=new Date();
+                return dn.getFullYear()-this.year;
+            }
+        }
+        let phone1=new phone('ip5','iphone',2015);
+        document.write("<br>My phone is: "+ phone1.age()+ " years old");
+    </script>
+
+    <p id="demo"></p>
+<button onclick="btnclickdemo()" class="btn btn-primary" id="btn" onmouseover="btnonmouseover()">Hover</button><br>
+    <button onclick="this.innerHTML= Date()"  class="btn btn-primary" onmouseover="">Click here</button>
+
+
+    <script>
+        document.getElementById("btn").addEventListener("click", loadhere);
+
+
+
+    </script>
+</body>
+</html>
