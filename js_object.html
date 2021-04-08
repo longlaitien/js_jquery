@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var txt="";
+    var person={firstN: "lai",midN:"tien", lastN:"long",age:"40"};
+    for (p in person){
+        txt += person[p]+" ";
+    }
+    document.write(txt);
+
+    txt="";
+    delete person.age;
+    for (p in person){
+        txt += person[p]+" ";
+    }
+    document.write(txt.toUpperCase());
+
+    function fnperson(fname,lname,age,phone){
+        this.fname=fname;
+        this.lname=lname;
+        this.age=age;
+        this.phone=phone;
+        this.fullname=function (name) {
+            return this.fname+" "+this.lname;
+        }
+    }
+    txt="";
+    var p12= new fnperson("Lai","Long",24,"03452352");
+    for (p in p12){
+        txt+= p12[p]+" ";
+    }
+    document.write(txt);
+</script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    var fn1=function (b,c){
+        return b+c;
+    }
+    document.write(fn1(2,4)+fn1(1,3)+" ");
+
+    var fn2=function(x=2,y){
+        return x+y;
+    }
+    document.write(fn2(3,1));
+
+    function sumtt(){
+        var i;
+        var t=0;
+        for(i=0; i<arguments.length;i++){
+            t+=arguments[i];
+        }
+        return t;
+    }
+    document.write("<br> " +sumtt(1,2,3,4,5));
+
+    function findmax(){
+        var i,m=-Infinity;
+        var l=arguments.length;
+        for(i=0;i<l;i++){
+            if(arguments[i]>m){
+                m=arguments[i];
+            }
+        }
+        return m;
+    }
+
+    function findmin(){
+        var i,m=Infinity,l=arguments.length;
+        for (i=0;i<l;i++){
+            if(arguments[i]<m){
+                m=arguments[i];
+            }
+        }
+        return m;
+    }
+
+    document.write("<br> Maxof  [1,2,12,4,5,6]: "+findmax(1,2,12,4,5,6));
+    document.write("<br> Minof  [7,2,3,4,5,6]: "+findmin(7,2,3,4,5,6));
+
+    class calculator{
+        constructor(x,y) {
+            this.x=x;
+            this.y=y;
+        }
+        txt="";
+        static cshow(t){
+            return t.x+"*"+t.y+"= ";
+        }
+        static calre(t){
+            return t.x*t.y;
+        }
+    }
+    cal1=new calculator(3,5);
+    document.write("<br>"+calfculator.cshow(cal1)+calculator.calre(cal1));
+</script>
+<body>
+
+</body>
+</html>

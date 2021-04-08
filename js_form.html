@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<p id="idd"></p>
+<p id="notice"></p>
+<script>
+    function  acform() {
+        var x;
+        x=document.forms["myform"]["fname"].value;
+        if(x==""){
+            alert("Required!");
+            return false;
+        }
+        else{
+            var y;
+            document.getElementById("idd").innerHTML= x.fname.toString();
+            return true
+        }
+    }
+
+    function checvalue(){
+        var text="";
+        if(document.getElementById("number1").validity.rangeOverflow){
+            text="out of value!";
+        }
+        else{
+            text="nice!";
+        }
+        document.getElementById("notice").innerHTML=text.toString();
+    }
+</script>
+<div class="container">
+    <form  class="col-xs-6 col-xs-offset-3" name="myform" onsubmit="return acform()" method="post">
+        <div class="gsc-selected-option-container">
+            <div class="form-group">
+                <input type="text" class="input-group" name="fname">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+<br>
+    <p id="notice" class="col-xs-offset-3"></p>
+<div class="container">
+    <form  class="col-xs-6 col-xs-offset-3" name="myform" onsubmit="checvalue()" method="post">
+        <div class="gsc-selected-option-container">
+            <div class="form-group">
+                <input type="number" class="input-group" id="number1" min="10" max="30">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit" onclick="checvalue()">Submit</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
