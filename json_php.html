@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p id="demo3"></p>
+<script>
+    var obj, dbParam,xmlhttp.myObj,x,txt="";
+    obj={table:"lld",limit:2};
+    dbParam=JSON.stringify(obj);
+    xmlhttp=XMLHttpRequest();
+    xmlhttp.onreadystatechange=function(){
+        if(this.readyState==4 && this.status==200){
+            myObj=JSON.parse(this.responseText);
+            txt+="<table border='1'>";
+            for (x in myObj){
+                txt+="<tr><td>"+myObj[x]+"</td></tr>";
+            }
+            txt+="</table>";
+            document.getElementById("demo3").innerHTML=txt;
+        }
+    };
+    xmlhttp.open("POST","array.php",true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form=urlencoded");
+    xmlhttp.send("x="+dbParam);
+</script>
+</body>
+</html>

@@ -12,6 +12,7 @@
 
     <p id="demo"></p>
     <p id="demo1"></p>
+    <p id="demo2"></p>
     <script>
         text='{"employee":[' +
             '{"firstname":"Tran","lastname": "Thanh"},' +
@@ -30,6 +31,28 @@
             document.getElementById("demo1").innerHTML="false";
         }
 
+    </script>
+    <script>
+        var obj=[{name:"Long", age: 20, city:"Ha Noi"},{name:"Lai", age:30, city:"Thai Binh"}]
+        myjson= JSON.stringify(obj);
+        var obj1=JSON.parse(myjson);
+        document.write(myjson.toString());
+        document.write("<br>"+obj1.toString()+obj.name+obj.age+obj.city);
+
+        var ht= new XMLHttpRequest();
+        ht.onreadystatechange=function(){
+            if(this.readyState==4 && this.status==200){
+                var obj11=JSON.parse(this.responseText);
+                document.getElementById("demo2").innerHTML=this.responseText;
+            }
+        };
+        ht.open("GET","array.php",true);
+        ht.send();
+        txt1="";
+        for(x in obj){
+            txt1+=obj[x].name[x]+" ";
+        }
+        console.log(txt1);
     </script>
 
 </body>
